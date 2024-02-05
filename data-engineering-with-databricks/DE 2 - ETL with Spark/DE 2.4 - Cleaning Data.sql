@@ -138,7 +138,12 @@ FROM users_dirty
 WHERE user_id IS NOT NULL
 GROUP BY user_id, user_first_touch_timestamp;
 
-SELECT count(*) FROM deduped_users
+
+SELECT count(*) FROM users_dirty;
+-- 986
+
+SELECT count(*) FROM deduped_users;
+-- 917
 
 -- COMMAND ----------
 

@@ -73,8 +73,14 @@
 
 -- COMMAND ----------
 
--- TODO
-<FILL_IN> "${DA.paths.kafka_events}" 
+CREATE TABLE IF NOT EXISTS events_json
+  (key BINARY, offset LONG, partition INTEGER, timestamp LONG, topic STRING, value BINARY)
+USING JSON
+LOCATION "${DA.paths.kafka_events}"
+
+-- COMMAND ----------
+
+select * from events_json;
 
 -- COMMAND ----------
 
@@ -91,8 +97,9 @@
 -- MAGIC assert spark.table("events_json"), "Table named `events_json` does not exist"
 -- MAGIC assert spark.table("events_json").columns == ['key', 'offset', 'partition', 'timestamp', 'topic', 'value'], "Please name the columns in the order provided above"
 -- MAGIC assert spark.table("events_json").dtypes == [('key', 'binary'), ('offset', 'bigint'), ('partition', 'int'), ('timestamp', 'bigint'), ('topic', 'string'), ('value', 'binary')], "Please make sure the column types are identical to those provided above"
--- MAGIC
+-- MAGIC print(spark.table("events_json").dtypes)
 -- MAGIC total = spark.table("events_json").count()
+-- MAGIC
 -- MAGIC assert total == 2252, f"Expected 2252 records, found {total}"
 
 -- COMMAND ----------
