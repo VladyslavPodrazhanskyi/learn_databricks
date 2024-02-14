@@ -91,6 +91,8 @@ mac_df = (events_df
 # ANSWER
 num_rows = mac_df.count()
 rows = mac_df.take(5)
+display(rows)
+print(num_rows)
 
 # COMMAND ----------
 

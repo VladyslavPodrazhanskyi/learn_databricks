@@ -51,6 +51,7 @@
 -- MAGIC     assert spark.table(table_name), f"Table named **`{table_name}`** does not exist"
 -- MAGIC     assert set(spark.table(table_name).columns) == set(column_names), "Please name the columns as shown in the schema above"
 -- MAGIC     assert spark.table(table_name).count() == num_rows, f"The table should have {num_rows} records"
+-- MAGIC     
 
 -- COMMAND ----------
 
@@ -98,6 +99,10 @@
 -- MAGIC %md
 -- MAGIC
 -- MAGIC ### Solve with SQL
+
+-- COMMAND ----------
+
+select * from events;
 
 -- COMMAND ----------
 

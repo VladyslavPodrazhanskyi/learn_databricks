@@ -115,6 +115,10 @@ CREATE OR REPLACE TABLE events_raw
 
 -- COMMAND ----------
 
+
+
+-- COMMAND ----------
+
 -- ANSWER
 INSERT INTO events_raw
 SELECT * FROM events_json
