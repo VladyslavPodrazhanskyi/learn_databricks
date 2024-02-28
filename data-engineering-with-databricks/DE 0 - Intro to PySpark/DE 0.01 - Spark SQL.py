@@ -137,6 +137,8 @@ spark
 # COMMAND ----------
 
 products_df = spark.table("products")
+products_df.show()
+display(products_df)
 
 # COMMAND ----------
 

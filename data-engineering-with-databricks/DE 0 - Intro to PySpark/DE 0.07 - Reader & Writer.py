@@ -54,13 +54,14 @@
 
 # COMMAND ----------
 
-users_df = (spark
-           .read
-           .option("sep", "\t")
-           .option("header", True)
-           .option("inferSchema", True)
-           .csv(DA.paths.users_csv)
-          )
+users_df = (
+    spark
+    .read
+    .option("sep", "\t")
+    .option("header", True)
+    .option("inferSchema", True)
+    .csv(DA.paths.users_csv)
+)
 
 users_df.printSchema()
 
@@ -112,6 +113,7 @@ users_df = (spark
            .schema(user_defined_schema)
            .csv(DA.paths.users_csv)
           )
+display(users_df)
 
 # COMMAND ----------
 
@@ -196,6 +198,7 @@ events_df = (spark
             .schema(user_defined_schema)
             .json(DA.paths.events_json)
            )
+display(events_df)
 
 # COMMAND ----------
 
@@ -344,7 +347,14 @@ events_df.write.mode("overwrite").saveAsTable("events")
 
 # COMMAND ----------
 
+# MAGIC %sql
+# MAGIC select * from events;
+
+# COMMAND ----------
+
 print(DA.schema_name)
+
+
 
 # COMMAND ----------
 

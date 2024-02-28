@@ -56,6 +56,8 @@ print(events_df.device)
 print(events_df["device"])
 print(col("device"))
 
+print(type(col("device")))
+
 # COMMAND ----------
 
 # DBTITLE 0,--i18n-d87b8303-8f78-416e-99b0-b037caf2107a

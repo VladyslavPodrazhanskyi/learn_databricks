@@ -28,6 +28,7 @@
 # COMMAND ----------
 
 # MAGIC %run ./Includes/Classroom-Setup-04.1
+# MAGIC
 
 # COMMAND ----------
 
