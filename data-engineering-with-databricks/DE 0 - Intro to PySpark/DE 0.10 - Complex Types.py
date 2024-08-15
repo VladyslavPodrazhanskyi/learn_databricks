@@ -36,7 +36,8 @@ from pyspark.sql.functions import *
 
 df = spark.table("sales")
 
-display(df)
+df.printSchema()
+# display(df)
 
 # COMMAND ----------
 

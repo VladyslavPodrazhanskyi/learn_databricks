@@ -22,6 +22,7 @@ def _create_eltwss_users_update():
     
     total = spark.read.table("users_dirty").count()
     print(f"({int(time.time())-start} seconds / {total:,} records)")
+    
 
 # COMMAND ----------
 

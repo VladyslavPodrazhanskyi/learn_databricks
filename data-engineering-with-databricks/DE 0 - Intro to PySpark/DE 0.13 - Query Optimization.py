@@ -37,6 +37,7 @@
 
 df = spark.read.table("events")
 display(df)
+df.printSchema()
 
 # COMMAND ----------
 
@@ -140,6 +141,8 @@ stupid_df.explain(True)
 # MAGIC Class.forName("org.postgresql.Driver")
 
 # COMMAND ----------
+
+from pyspark.sql.functions import col
 
 jdbc_url = "jdbc:postgresql://server1.training.databricks.com/training"
 

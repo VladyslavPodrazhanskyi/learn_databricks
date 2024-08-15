@@ -64,7 +64,9 @@
 -- COMMAND ----------
 
 SELECT count(*), count(user_id), count(user_first_touch_timestamp), count(email), count(updated)
-FROM users_dirty
+FROM users_dirty;
+
+DESCRIBE EXTENDED users_dirty;
 
 -- COMMAND ----------
 

@@ -121,6 +121,8 @@ display(timestamp_df)
 
 from pyspark.sql.functions import date_format
 
+timestamp_df.printSchema()
+
 formatted_df = (timestamp_df
                 .withColumn("date string", date_format("timestamp", "MMMM dd, yyyy"))
                 .withColumn("time string", date_format("timestamp", "HH:mm:ss.SSSSSS"))

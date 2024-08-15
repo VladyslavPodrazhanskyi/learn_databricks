@@ -52,6 +52,13 @@
 
 -- COMMAND ----------
 
+CREATE OR REPLACE TEMP VIEW events_raw AS 
+SELECT * FROM events_raw;
+
+SELECT * FROM events_raw;
+
+-- COMMAND ----------
+
 CREATE OR REPLACE TEMP VIEW events_strings AS 
 SELECT string(key), string(value) FROM events_raw;
 
@@ -124,6 +131,8 @@ FROM events_strings);
 
 SELECT * FROM parsed_events
 
+
+
 -- COMMAND ----------
 
 -- MAGIC %python
@@ -138,6 +147,7 @@ SELECT * FROM parsed_events
 -- MAGIC )
 -- MAGIC
 -- MAGIC display(parsed_eventsDF)
+-- MAGIC parsed_eventsDF.printSchema()
 
 -- COMMAND ----------
 
@@ -167,6 +177,11 @@ SELECT * FROM exploded_events WHERE size(items) > 2
 -- MAGIC exploded_eventsDF = (parsed_eventsDF
 -- MAGIC     .withColumn("item", explode("items"))
 -- MAGIC )
+-- MAGIC
+-- MAGIC print(parsed_eventsDF.count())
+-- MAGIC print(exploded_eventsDF.count())
+-- MAGIC print(exploded_eventsDF.where(size("items") > 2).count())
+-- MAGIC
 -- MAGIC
 -- MAGIC display(exploded_eventsDF.where(size("items") > 2))
 
